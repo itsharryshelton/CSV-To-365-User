@@ -7,8 +7,6 @@ import requests
 import msal
 import random
 import string
-import random
-import string
 
 #CSV Function
 def create_csv_file(input_file, output_file):
@@ -53,19 +51,17 @@ def get_file_locations():
 input_file, output_file = get_file_locations()
 create_csv_file(input_file, output_file)
 
-# 365 BIT STARTS HERE
+#365 BIT STARTS HERE
 
 def generate_random_password(length=8):
     if length < 8:
         raise ValueError("Password length should be at least 8 characters.")
 
-    # Define the character sets
     lower = string.ascii_lowercase
     upper = string.ascii_uppercase
     digits = string.digits
     special = string.punctuation
 
-    # Ensure that the password contains at least one character from each set
     password = [
         random.choice(lower),
         random.choice(upper),
@@ -73,11 +69,10 @@ def generate_random_password(length=8):
         random.choice(special),
     ]
 
-    # Fill the rest of the password length with random choices from all sets
     all_characters = lower + upper + digits + special
     password += random.choices(all_characters, k=length - 4)
 
-    # Shuffle the result to ensure randomness
+    #Shuffle Shuffle
     random.shuffle(password)
 
     return ''.join(password)
@@ -113,27 +108,23 @@ def create_users(csv_path, save_path):
     app = msal.ConfidentialClientApplication(client_id, authority=authority_url, client_credential=client_secret)
     token_response = app.acquire_token_for_client(scopes=scope)
 
-    # Check for token
     if 'access_token' not in token_response:
         print("Failed to obtain access token")
         exit()
 
     access_token = token_response['access_token']
 
-    # Get existing users
+    #Get existing users for checking
     existing_users = get_existing_users(access_token)
-
-    # Initialize users variable
     users = None
     
-    # Read CSV file with error handling
     try:
         users = pd.read_csv(csv_path)
     except Exception as e:
         messagebox.showerror("Error", f"Failed to read CSV file: {str(e)}")
         return
 
-    # Check for required columns
+    #Check for required columns
     required_columns = ['DisplayName', 'UserPrincipalName', 'FirstName', 'LastName']
     missing_columns = [col for col in required_columns if col not in users.columns]
 
@@ -141,10 +132,10 @@ def create_users(csv_path, save_path):
         messagebox.showerror("Error", f"CSV file is missing the following columns: {', '.join(missing_columns)}")
         return
 
-    # Remove duplicates based on existing users
+    #Remove duplicates based on existing users
     users = users[~users['UserPrincipalName'].isin(existing_users)]
     
-    # Handle missing or NaN values in UserPrincipalName
+    #Handle missing or NaN values in UserPrincipalName
     users['UserPrincipalName'] = users['UserPrincipalName'].fillna('')
     users = users[users['UserPrincipalName'] != '']  # Remove rows where UserPrincipalName is empty
 
@@ -155,7 +146,6 @@ def create_users(csv_path, save_path):
     email_password_list = []
 
     for index, user in users.iterrows():
-        # Check if UserPrincipalName is still valid
         if isinstance(user['UserPrincipalName'], str) and user['UserPrincipalName']:
             password = generate_random_password()
             user_data = {
