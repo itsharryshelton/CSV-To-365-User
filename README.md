@@ -40,7 +40,7 @@ Latest Version of Python Installed to run the .py file
 
 Script uses these modules, so you will need to be sure they are installed: csv, tkinter, pandas, requests, msal, random, string
 
-You will need to edit the script to make it work with your 365 - **you will need to make a Entra App Registration, and add the Secret ID, Tenant ID and Application ID on line 106, 107 & 108**
+You will need to edit the script to make it work with your 365 - **you will need to make a Entra App Registration, and add the Secret ID, Tenant ID and Application ID on line 101, 102 & 103**
 
 ![image](https://github.com/user-attachments/assets/bfe15dbb-9464-47f2-ace6-3c1b9e03df88)
 
