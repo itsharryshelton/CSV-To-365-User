@@ -59,3 +59,42 @@ User.ReadWrite - Delegated
 User.ReadWrite.All - Application
 
 ![image](https://github.com/user-attachments/assets/d43e11ad-03fe-43da-8a04-8c271ff3ce61)
+
+
+----------------------------------------------------------
+
+## ⚡Python Modules used
+
+You will need to make sure that the below modules are installed, and are callable.
+
+**Standard Python Modules**
+
+_csv_
+
+_os_
+
+_random_
+
+_string_
+
+_sys_
+
+_threading_
+
+_io_
+
+
+**Third-party imports**
+
+_pandas_
+
+_requests_
+
+_msal_
+
+_customtkinter_
+
+
+**Tkinter - CustomTkinter is for main GUI, Tkinter is for File Calling**
+
+_tkinter_
