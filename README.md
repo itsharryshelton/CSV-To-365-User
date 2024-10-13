@@ -1,4 +1,5 @@
-# Automatic 365 User Creation via CSV
+# 🔣 Automatic 365 User Creation via CSV
+### Latest Version: v1.2
 
 This was something I needed for a work job, so putting here if anyone needs it. 
 
@@ -19,35 +20,35 @@ _"Job Title"_
 Convert it to a clean CSV file for 365, then enter it into 365 for user creation - it does not do any license changes, as wasn't required here.
 It will export a CSV file of passwords for each user, with reset on next sign on set.
 
+_Looking to have this pull this info from a TXT so you can customize the bad CSV file easier than editing the code on the next version maybe_
+
 ---------------------------------------------------------
 
-### Current Limitation:
+# 📖 The way it'll work through:
 
-Does not automatically select the CSV file it makes to import into 365, so it will ask you again for this.
+GUI Box will open, select the function you want to run, either cleaning CSV or just 365 making.
+Terminal Box within the GUI so you can see the output as it goes on.
 
-**The way it'll work through:**
+![image](https://github.com/user-attachments/assets/2d867f9a-403c-4848-a23b-dd07b747393e)
 
-1. Ask you for the source CSV
-2. Ask for save location for the clean CSV
-3. Ask you to select the clean CSV to import to 365
-4. Ask for the save location for the password list
 
 ----------------------------------------------------------
 
-# Prerequisites
+# 🧠 Prerequisites
 
 Latest Version of Python Installed to run the .py file
 
 Script uses these modules, so you will need to be sure they are installed: csv, tkinter, pandas, requests, msal, random, string
 
-You will need to edit the script to make it work with your 365 - **you will need to make a Entra App Registration, and add the Secret ID, Tenant ID and Application ID on line 101, 102 & 103**
+You will need to download the AzureAPIDetails.txt and place it within the same folder as the .py, update this with your Azure API Details
 
-![image](https://github.com/user-attachments/assets/bfe15dbb-9464-47f2-ace6-3c1b9e03df88)
+![image](https://github.com/user-attachments/assets/d397b6f9-223d-49d4-8154-b63b77aa6499)
+
 
 
 ----------------------------------------------------------
 
-## Entra App API Settings:
+## 💡 Entra App API Settings:
 
 You will need to add:
 
