@@ -31,6 +31,10 @@ Terminal Box within the GUI so you can see the output as it goes on.
 
 ![image](https://github.com/user-attachments/assets/2d867f9a-403c-4848-a23b-dd07b747393e)
 
+# Limited GUI Version
+
+This version has no GUI with buttons to click, it will just go straight into asking for the paths and making the user. This does not give any pop up to say it's done.
+It does return a print statement if completed or had any issues, so if you're running this as python script and getting errors, make sure you can see the terminal output at the same time.
 
 ----------------------------------------------------------
 
